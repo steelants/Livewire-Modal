@@ -1,0 +1,26 @@
+{
+    "name": "steelants/modal",
+    "type": "library",
+    "require": {
+        "laravel/framework": "^10.24",
+        "livewire/livewire": "2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Steelants\\Modal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "steelants"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SteelAnts\\DataTable\\ModalServiceProvider"
+            ]
+        }
+    }
+}
