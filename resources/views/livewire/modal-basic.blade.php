@@ -1,10 +1,10 @@
 <div>
     <!-- Modal -->
-    <div aria-hidden="true" aria-labelledby="{{ $modalId }}Label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
+    <div aria-hidden="true" aria-labelledby="{{ $modalId }}-label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="{{ $modalId }}Label">{{ $title }}</h5>
+                    <h5 class="modal-title" id="{{ $modalId }}-label">{{ $title }}</h5>
                     <button aria-label="Close" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" type="button"></button>
                 </div>
                 <div class="modal-body">

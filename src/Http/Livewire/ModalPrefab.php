@@ -23,8 +23,12 @@ class ModalPrefab extends Component
     public function closeModal(){
         $this->reset('livewireComponentName');
         $this->reset('modelId');
-        $this->reset('modalId');
         $this->reset('title');
+    }
+
+    public function mount()
+    {
+        $this->modalId = substr(md5(uniqid(mt_rand(), true)), 0, 5);
     }
 
     public function render()
