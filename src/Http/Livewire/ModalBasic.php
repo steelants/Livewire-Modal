@@ -24,7 +24,7 @@ class ModalBasic extends Component
 
     public function closeModal(){
         $this->reset('livewireComponents');
-        $this->reset('modelId');
+        $this->reset('model');
         $this->reset('title');
     }
 
