@@ -8,21 +8,21 @@ class ModalPrefab extends Component
 {
     protected $listeners = ['openModal', 'closeModal'];
 
-    public $livewireComponentName;
+    public $livewireComponents = [];
 
     public $modelId = null;
     public $modalId;
     public $title;
 
-    public function openModal($livewireComponentName, $title = "", $modelId = null){
-        $this->livewireComponentName = $livewireComponentName;
+    public function openModal($livewireComponents, $title = "", $modelId = null){
+        $this->livewireComponents = $livewireComponents;
         $this->modelId = $modelId;
         $this->title = $title;
 
     }
 
     public function closeModal(){
-        $this->reset('livewireComponentName');
+        $this->reset('livewireComponents');
         $this->reset('modelId');
         $this->reset('title');
     }

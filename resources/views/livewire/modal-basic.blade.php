@@ -13,8 +13,10 @@
                     <div class="spinner-border" role="status" wire:loading.delay.short>
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    @if (isset($livewireComponentName))
-                        @livewire($livewireComponentName, ['modelId' => $modelId], key($livewireComponentName))
+                    @if (isset($livewireComponents))
+                        @foreach ((array) $livewireComponents as $livewireComponentName)
+                            @livewire($livewireComponentName, ['modelId' => $modelId], key($livewireComponentName))
+                        @endforeach
                     @endif
                 </div>
             </div>
