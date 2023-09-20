@@ -3,6 +3,16 @@
 
 [![Total Downloads](https://img.shields.io/packagist/dt/steelants/modal.svg?style=flat-square)](https://packagist.org/packages/steelants/modal)
 
+## Include in your layout
+like this
+```blade
+...
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @livewire('modals.test-modal', [], key('modal'))
+</body>
+...
+```
 ## Examples
 ```php
 namespace App\Http\Livewire\Modals;
