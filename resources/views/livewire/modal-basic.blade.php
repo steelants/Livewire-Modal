@@ -8,7 +8,10 @@
                     <button aria-label="Close" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" type="button"></button>
                 </div>
                 <div class="modal-body">
-                    @dump($livewireComponentName)
+
+                    <div class="spinner-border" role="status" wire:loading.delay.short>
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                     @if (isset($livewireComponentName))
                         @livewire($livewireComponentName, ['modelId' => $modelId], key($livewireComponentName))
                     @endif
