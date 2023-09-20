@@ -30,7 +30,7 @@ class ModalBasic extends Component
 
     public function mount()
     {
-        $this->modalId = Str::random(5);
+        $this->modalId = ('m'.Str::random(5));
     }
 
     public function render()
