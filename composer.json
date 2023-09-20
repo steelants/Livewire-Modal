@@ -2,7 +2,7 @@
     "name": "steelants/modal",
     "type": "library",
     "require": {
-        "laravel/framework": "^10.24",
+        "laravel/framework": "^10",
         "livewire/livewire": "2"
     },
     "license": "MIT",
