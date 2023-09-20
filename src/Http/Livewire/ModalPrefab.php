@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class ModalPrefab extends Component
 {
-    protected $listeners = ['openModal'];
+    protected $listeners = ['openModal', 'closeModal'];
 
     public $livewireComponentName;
     public $modelId = null;
@@ -18,6 +18,13 @@ class ModalPrefab extends Component
     public function openModal($argument, $modelId = null){
         $this->livewireComponentName = $argument;
         $this->modelId = $modelId;
+    }
+
+    public function closeModal(){
+        $this->reset('livewireComponentName');
+        $this->reset('modelId');
+        $this->reset('modalId');
+        $this->reset('title');
     }
 
     public function render()

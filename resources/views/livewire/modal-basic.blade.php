@@ -1,6 +1,6 @@
-<div >
+<div>
     <!-- Modal -->
-    <div wire:ignore.self aria-hidden="true" aria-labelledby="{{ $modalId }}Label" class="modal fade" id="{{ $modalId }}" tabindex="-1">
+    <div aria-hidden="true" aria-labelledby="{{ $modalId }}Label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
@@ -10,22 +10,26 @@
                 <div class="modal-body">
                     @dump($livewireComponentName)
                     @if (isset($livewireComponentName))
-                        @livewire($livewireComponentName, ["modelId" => $modelId], key($livewireComponentName))
+                        @livewire($livewireComponentName, ['modelId' => $modelId], key($livewireComponentName))
                     @endif
                 </div>
             </div>
         </div>
     </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        window.addEventListener('close-modal', function() {
-            $("#{{ $modalId }}").modal('hide');
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.addEventListener('close-modal', function() {
+                $("#{{ $modalId }}").modal('hide');
+            })
+            const myModalEl = document.getElementById('{{ $modalId }}')
+            myModalEl.addEventListener('hidden.bs.modal', event => {
+                Livewire.emit('closeModal');
+            })
+            Livewire.on('openModal', event => {
+                (new bootstrap.Modal('#{{ $modalId }}')).show()
+            })
         })
-        Livewire.on('openModal', event => {
-            (new bootstrap.Modal('#{{ $modalId }}')).show()
-        })
-    })
-</script>
+    </script>
 </div>
 
 @push('scripts')
