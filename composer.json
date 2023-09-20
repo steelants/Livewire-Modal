@@ -3,7 +3,7 @@
     "type": "library",
     "require": {
         "laravel/framework": "^10",
-        "livewire/livewire": "2"
+        "livewire/livewire": "^2"
     },
     "license": "MIT",
     "autoload": {
