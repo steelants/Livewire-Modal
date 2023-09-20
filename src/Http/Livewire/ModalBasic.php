@@ -11,13 +11,13 @@ class ModalBasic extends Component
 
     public $livewireComponents = [];
 
-    public $modelId = null;
+    public $model = null;
     public $modalId;
     public $title;
 
-    public function openModal($livewireComponents, $title = "", $modelId = null){
+    public function openModal($livewireComponents, $title = "", $model = null){
         $this->livewireComponents = $livewireComponents;
-        $this->modelId = $modelId;
+        $this->model = $model;
         $this->title = $title;
 
     }

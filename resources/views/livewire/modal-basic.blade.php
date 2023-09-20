@@ -15,7 +15,7 @@
                     </div>
                     @if (isset($livewireComponents))
                         @foreach ((array) $livewireComponents as $livewireComponentName)
-                            @livewire($livewireComponentName, ['model' => $modelId], key($livewireComponentName))
+                            @livewire($livewireComponentName, ['model' => $model], key($livewireComponentName))
                         @endforeach
                     @endif
                 </div>
