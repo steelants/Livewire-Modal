@@ -4,7 +4,7 @@ namespace SteelAnts\Modal\Http\Livewire;
 
 use Livewire\Component;
 
-class ModalPrefab extends Component
+class ModalBasic extends Component
 {
     protected $listeners = ['openModal', 'closeModal'];
 
