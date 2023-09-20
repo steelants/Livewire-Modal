@@ -3,6 +3,7 @@
 namespace SteelAnts\Modal\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class ModalBasic extends Component
 {
@@ -29,7 +30,7 @@ class ModalBasic extends Component
 
     public function mount()
     {
-        $this->modalId = substr(md5(uniqid(mt_rand(), true)), 0, 5);
+        $this->modalId = Str::random(5);
     }
 
     public function render()
