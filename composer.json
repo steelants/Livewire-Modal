@@ -1,5 +1,6 @@
 {
     "name": "steelants/modal",
+    "description": "Simple Modal class based on Laravel, Livewire & Bootstrap 5",
     "type": "library",
     "license": "MIT",
     "autoload": {
