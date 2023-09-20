@@ -16,7 +16,7 @@ class TestModal extends ModalPrefab
 }
 ```
 ```html
-    <button onclick="Livewire.emit('openModal', 'test-component-patrik', 1)">Edit User</button>
+<button onclick="Livewire.emit('openModal', 'test-component-patrik', 1)">Edit User</button>
 ```
 ```shell
 git tag x.x.x
