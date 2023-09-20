@@ -1,7 +1,7 @@
 # LV-Modal
 ### Created by: [SteelAnts s.r.o.](https://www.steelants.cz/)
 
-[![Total Downloads](https://img.shields.io/packagist/dt/steelants/datatable.svg?style=flat-square)](https://packagist.org/packages/steelants/modal)
+[![Total Downloads](https://img.shields.io/packagist/dt/steelants/modal.svg?style=flat-square)](https://packagist.org/packages/steelants/modal)
 
 ## Examples
 ```php
