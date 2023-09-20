@@ -9,15 +9,16 @@ class ModalPrefab extends Component
     protected $listeners = ['openModal', 'closeModal'];
 
     public $livewireComponentName;
+
     public $modelId = null;
-
-    public $modalId = "test";
-
+    public $modalId;
     public $title;
 
-    public function openModal($argument, $modelId = null){
-        $this->livewireComponentName = $argument;
+    public function openModal($livewireComponentName, $title = "", $modelId = null){
+        $this->livewireComponentName = $livewireComponentName;
         $this->modelId = $modelId;
+        $this->title = $title;
+
     }
 
     public function closeModal(){

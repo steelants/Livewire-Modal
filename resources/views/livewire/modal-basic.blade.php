@@ -4,6 +4,7 @@
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
+                    @yield('modal-header')
                     <h5 class="modal-title" id="{{ $modalId }}-label">{{ $title }}</h5>
                     <button aria-label="Close" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" type="button"></button>
                 </div>
