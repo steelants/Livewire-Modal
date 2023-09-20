@@ -1,21 +1,22 @@
 {
     "name": "steelants/modal",
     "type": "library",
-    "require": {
-        "laravel/framework": "^10",
-        "livewire/livewire": "^2"
-    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Steelants\\Modal\\": "src/"
+            "SteelAnts\\Modal\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "steelants"
+            "name": "SteelAnts"
         }
     ],
+    "require": {
+        "laravel/framework": "^10",
+        "livewire/livewire": "^2"
+    },
+    "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
