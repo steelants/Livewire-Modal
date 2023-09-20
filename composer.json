@@ -19,7 +19,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SteelAnts\\DataTable\\ModalServiceProvider"
+                "SteelAnts\\Modal\\ModalServiceProvider"
             ]
         }
     }
