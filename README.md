@@ -9,7 +9,7 @@ like this
 ...
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    @livewire('modals.test-modal', [], key('modal'))
+    @livewire('modals.test-modal', [ 'title' => "Super Modal" ], key('modal'))
 </body>
 ...
 ```
