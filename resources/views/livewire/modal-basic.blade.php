@@ -24,12 +24,11 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            const myModalEl = document.getElementById('{{ $modalId }}')
             window.addEventListener('close-modal', function() {
-                var myModalEl = document.getElementById('{{ $modalId }}');
                 var modal = bootstrap.Modal.getInstance(myModalEl)
                 modal.hide();
             })
-            const myModalEl = document.getElementById('{{ $modalId }}')
             myModalEl.addEventListener('hidden.bs.modal', event => {
                 Livewire.emit('closeModal');
             })
