@@ -25,7 +25,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener('close-modal', function() {
-                $("#{{ $modalId }}").modal('hide');
+                var myModalEl = document.getElementById('{{ $modalId }}');
+                var modal = bootstrap.Modal.getInstance(myModalEl)
+                modal.hide();
             })
             const myModalEl = document.getElementById('{{ $modalId }}')
             myModalEl.addEventListener('hidden.bs.modal', event => {
