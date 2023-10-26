@@ -9,10 +9,6 @@
                     <button aria-label="Close" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" type="button"></button>
                 </div>
                 <div class="modal-body">
-
-                    <div class="spinner-border" role="status" wire:loading.delay.short>
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
                     @if (isset($livewireComponents))
                         @foreach ((array) $livewireComponents as $livewireComponentName)
                             @livewire($livewireComponentName, ['model' => $model], key($livewireComponentName))
