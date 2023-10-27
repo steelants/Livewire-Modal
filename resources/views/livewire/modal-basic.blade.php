@@ -22,8 +22,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const myModalEl = document.getElementById('{{ $modalId }}')
             window.addEventListener('close-modal', function() {
-                var modal = bootstrap.Modal.getInstance(myModalEl)
-                modal.hide();
+                (bootstrap.Modal.getInstance(myModalEl)).hide();
             })
             myModalEl.addEventListener('hidden.bs.modal', event => {
                 Livewire.emit('closeModal');
