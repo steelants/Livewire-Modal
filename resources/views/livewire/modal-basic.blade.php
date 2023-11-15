@@ -6,7 +6,7 @@
                 <div class="modal-header">
                     @yield('modal-header')
                     <h5 class="modal-title" id="{{ $modalId }}-label">{{ $title }}</h5>
-                    <button aria-label="Close" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" type="button"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     @if (isset($livewireComponents))
