@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     @if (isset($livewireComponents))
                         @foreach ((array) $livewireComponents as $livewireComponentName)
-                            @livewire($livewireComponentName, ['model' => $model], key($livewireComponentName))
+                            @livewire($livewireComponentName, ['model' => $model, 'parameters' => $parameters], key($livewireComponentName))
                         @endforeach
                     @endif
                 </div>
