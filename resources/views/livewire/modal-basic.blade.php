@@ -1,6 +1,7 @@
 <div>
     <!-- Modal -->
-    <div aria-hidden="true" aria-labelledby="{{ $modalId }}-label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
+    <div aria-hidden="true" aria-labelledby="{{ $modalId }}-label" class="modal fade" id="{{ $modalId }}"
+        tabindex="-1" wire:ignore.self>
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
@@ -9,7 +10,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     @if (isset($livewireComponents))
                         @foreach ((array) $livewireComponents as $livewireComponentName)
                             @livewire($livewireComponentName, $livewireComponentsParameters, key($livewireComponentName))
