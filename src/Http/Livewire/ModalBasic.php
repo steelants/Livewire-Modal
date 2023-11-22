@@ -10,6 +10,7 @@ class ModalBasic extends Component
     protected $listeners = ['openModal', 'closeModal'];
 
     public $livewireComponents = [];
+    public $livewireComponentParameters = [];
 
     public $model = null;
     public $parameters = [];
@@ -19,14 +20,17 @@ class ModalBasic extends Component
 
     public function openModal($livewireComponents, $title = "", $model = null, ...$parameters){
         $this->livewireComponents = $livewireComponents;
-        $this->model = $model;
-        $this->parameters = $parameters;
         $this->title = $title;
+        
+        if (!empty($model) && $model != null){
+            $this->livewireComponentParameters['model'] = $model;
+        }
+        $this->livewireComponentParameters['parameters'] = $parameters;
     }
 
     public function closeModal(){
         $this->reset('livewireComponents');
-        $this->reset('model');
+        $this->reset('livewireComponentParameters');
         $this->reset('title');
     }
 

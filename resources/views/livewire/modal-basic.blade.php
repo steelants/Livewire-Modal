@@ -9,9 +9,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+
                     @if (isset($livewireComponents))
                         @foreach ((array) $livewireComponents as $livewireComponentName)
-                            @livewire($livewireComponentName, ['model' => $model, 'parameters' => $parameters], key($livewireComponentName))
+                            @livewire($livewireComponentName, $livewireComponentsParameters, key($livewireComponentName))
                         @endforeach
                     @endif
                 </div>
