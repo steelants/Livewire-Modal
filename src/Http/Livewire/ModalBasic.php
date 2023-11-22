@@ -23,8 +23,8 @@ class ModalBasic extends Component
         $this->title = $title;
         
         if (!empty($model) && $model != null){
-            $this->livewireComponentParameters['model'] = $model;
         }
+        $this->livewireComponentParameters['model'] = $model;
         $this->livewireComponentParameters['parameters'] = $parameters;
     }
 
