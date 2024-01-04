@@ -26,7 +26,10 @@ class ModalBasic extends Component
             $this->livewireComponentParameters['model'] = $model;
         }
 
-        $this->livewireComponentParameters['parameters'] = $parameters;
+        if (!empty($parameters) && $parameters != []){
+            $this->livewireComponentParameters['parameters'] = $parameters;
+        }
+
     }
 
     public function closeModal(){
