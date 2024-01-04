@@ -21,10 +21,11 @@ class ModalBasic extends Component
     public function openModal($livewireComponents, $title = "", $model = null, ...$parameters){
         $this->livewireComponents = $livewireComponents;
         $this->title = $title;
-        
+
         if (!empty($model) && $model != null){
+            $this->livewireComponentParameters['model'] = $model;
         }
-        $this->livewireComponentParameters['model'] = $model;
+
         $this->livewireComponentParameters['parameters'] = $parameters;
     }
 
