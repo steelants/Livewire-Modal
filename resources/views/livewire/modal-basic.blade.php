@@ -30,6 +30,9 @@
             Livewire.on('openModal', event => {
                 (new bootstrap.Modal('#{{ $modalId }}')).show()
             })
+            Livewire.on('closeModal', event => {
+                (bootstrap.Modal.getInstance(myModalEl)).hide();
+            })
         })
     </script>
 </div>
