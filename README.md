@@ -1,21 +1,39 @@
 # Livevire Modal
-## Currently WIP
+
+Package for opening any Livewire component inside modal. Powered by Livewire 3 and Bootstrap 5.
+
 ### Created by: [SteelAnts s.r.o.](https://www.steelants.cz/)
 
 [![Total Downloads](https://img.shields.io/packagist/dt/steelants/modal.svg?style=flat-square)](https://packagist.org/packages/steelants/modal)
 
-## Include in layout
+## Usage
+
+### Include modal in layout
 ```blade
 @livewire('modal-basic', key('modal'))
 ```
-## Open modal from blade
+
+### Opening modal from blade or JavaScript
 ```html
-<button onclick="Livewire.emit('openModal', 'livewire-component-name', 'title', '?modelId')">Edit User</button>
+<button onclick="Livewire.dispatch('openModal', 'livewire-component-name', 'Modal title', [componentParameters])">Open modal</button>
 ```
 
-## Open modal from controller
+### Opening modal from component
 ```php
-$this->emit('openModal', 'livewire-component-name', 'title', '?modelId')
+$this->dispatch('openModal', 'livewire-component-name', 'Modal title', $componentParameters)
+```
+
+## openModal parameters
+```php
+/**
+ * Open modal
+ *
+ * @param string|Array $livewireComponents Component name, can be array
+ * @param string $title Modal title
+ * @param array $parameters Component parameters
+ * @return void
+ */
+public function openModal($livewireComponents, $title = "", $parameters = [])
 ```
 
 ## Contributors

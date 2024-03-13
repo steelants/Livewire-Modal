@@ -1,6 +1,6 @@
 {
     "name": "steelants/modal",
-    "description": "Simple Modal class based on Laravel, Livewire & Bootstrap 5",
+    "description": "Package for opening any livewire component inside modal. Styled with Bootstrap 5.",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -15,7 +15,7 @@
     ],
     "require": {
         "laravel/framework": "^10",
-        "livewire/livewire": "^2"
+        "livewire/livewire": "^3"
     },
     "minimum-stability": "stable",
     "extra": {

@@ -1,5 +1,4 @@
 <div>
-    <!-- Modal -->
     <div aria-hidden="true" aria-labelledby="{{ $modalId }}-label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
         <div class="modal-dialog modal-fullscreen-sm-down">
             <div class="modal-content">
@@ -18,24 +17,21 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+    @script
+        <script>
             const myModalEl = document.getElementById('{{ $modalId }}')
-            window.addEventListener('close-modal', function() {
-                (bootstrap.Modal.getInstance(myModalEl)).hide();
-            })
-            myModalEl.addEventListener('hidden.bs.modal', event => {
-                Livewire.emit('closeModal');
-            })
             Livewire.on('openModal', event => {
-                (new bootstrap.Modal('#{{ $modalId }}')).show()
+                (new bootstrap.Modal('#{{ $modalId }}')).show();
             })
             Livewire.on('closeModal', event => {
                 (bootstrap.Modal.getInstance(myModalEl)).hide();
             })
-        })
-    </script>
+            window.addEventListener('close-modal', function() {
+                (bootstrap.Modal.getInstance(myModalEl)).hide();
+            })
+            myModalEl.addEventListener('hidden.bs.modal', event => {
+                Livewire.dispatch('closeModal');
+            })
+        </script>
+    @endscript
 </div>
-
-@push('scripts')
-@endpush

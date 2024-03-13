@@ -1,6 +1,6 @@
 <?php
 
-namespace SteelAnts\Modal\Http\Livewire;
+namespace SteelAnts\Modal\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -18,21 +18,15 @@ class ModalBasic extends Component
     public $modalId;
     public $title;
 
-    public function openModal($livewireComponents, $title = "", $model = null, ...$parameters){
+    public function openModal($livewireComponents, $title = "", $parameters = [])
+    {
         $this->livewireComponents = $livewireComponents;
         $this->title = $title;
-
-        if (!empty($model) && $model != null){
-            $this->livewireComponentParameters['model'] = $model;
-        }
-
-        if (!empty($parameters) && $parameters != []){
-            $this->livewireComponentParameters['parameters'] = $parameters;
-        }
-
+        $this->livewireComponentParameters = $parameters;
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->reset('livewireComponents');
         $this->reset('livewireComponentParameters');
         $this->reset('title');
@@ -40,7 +34,7 @@ class ModalBasic extends Component
 
     public function mount()
     {
-        $this->modalId = ('m'.Str::random(5));
+        $this->modalId = ('modal-' . Str::random(5));
     }
 
     public function render()

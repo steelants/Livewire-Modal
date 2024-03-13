@@ -4,7 +4,7 @@ namespace SteelAnts\Modal;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use SteelAnts\Modal\Http\Livewire\ModalBasic;
+use SteelAnts\Modal\Livewire\ModalBasic;
 
 class ModalServiceProvider extends ServiceProvider
 {
