@@ -36,6 +36,26 @@ $this->dispatch('openModal', 'livewire-component-name', 'Modal title', $componen
 public function openModal($livewireComponents, $title = "", $parameters = [])
 ```
 
+## Example
+```html
+<button onclick="Livewire.dispatch('openModal', 'user-form', 'Create user')">Create User</button>
+
+<button onclick="Livewire.dispatch('openModal', 'user-form', 'Edit user', ['user' => $userId])">Edit User</button>
+```
+
+```php
+use Livewire\Component;
+
+class UserForm extends Component
+{
+  public function mount(User $user)
+  {
+    $this->user = $user;
+  }
+}
+```
+
+
 ## Contributors
 <a href="https://github.com/steelants/livewire-modal/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=steelants/livewire-modal" />
