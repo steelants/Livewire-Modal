@@ -15,7 +15,7 @@ Package for opening any Livewire component inside modal. Powered by Livewire 3 a
 
 ### Opening modal from blade or JavaScript
 ```html
-<button onclick="Livewire.dispatch('openModal', 'livewire-component-name', 'Modal title', [componentParameters])">Open modal</button>
+<button onclick="Livewire.dispatch('openModal', {livewireComponents: 'livewire-component-name', title: 'Modal title', parameters: [...]})">Open modal</button>
 ```
 
 ### Opening modal from component
@@ -38,9 +38,9 @@ public function openModal($livewireComponents, $title = "", $parameters = [])
 
 ## Example
 ```html
-<button onclick="Livewire.dispatch('openModal', 'user-form', 'Create user')">Create User</button>
+<button onclick="Livewire.dispatch('openModal', {livewireComponents: 'user-form', title:  'Create user'})">Create User</button>
 
-<button onclick="Livewire.dispatch('openModal', 'user-form', 'Edit user', ['user' => $userId])">Edit User</button>
+<button onclick="Livewire.dispatch('openModal', {livewireComponents: 'user-form', title: 'Edit user', parameters: ['user' => $userId]})">Edit User</button>
 ```
 
 ```php
