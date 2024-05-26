@@ -1,6 +1,6 @@
 <div>
     <div aria-hidden="true" aria-labelledby="{{ $modalId }}-label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
-        <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-dialog modal-{{ $size }} modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
                     @yield('modal-header')
@@ -19,9 +19,9 @@
     </div>
     @script
         <script>
-            const myModalEl = document.getElementById('{{ $modalId }}')
+            const myModalEl = document.getElementById('{{ $modalId }}');
             Livewire.on('openModal', event => {
-                (new bootstrap.Modal('#{{ $modalId }}')).show();
+                (new bootstrap.Modal('#{{ $modalId }}', {'backdrop': event.static ? 'static' : true, 'keyboard': !event.static})).show();
             })
             Livewire.on('closeModal', event => {
                 (bootstrap.Modal.getInstance(myModalEl)).hide();

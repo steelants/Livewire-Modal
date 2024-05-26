@@ -18,6 +18,9 @@ class ModalBasic extends Component
     public $modalId;
     public $title;
 
+    public $size;
+    public $static;
+
     /**
      * Open modal
      *
@@ -26,11 +29,13 @@ class ModalBasic extends Component
      * @param array $parameters Component parameters
      * @return void
      */
-    public function openModal($livewireComponents, $title = "", $parameters = [])
+    public function openModal($livewireComponents, $title = "", $parameters = [], $size = 'md', $static = false)
     {
         $this->livewireComponents = $livewireComponents;
         $this->title = $title;
         $this->livewireComponentParameters = $parameters;
+        $this->size = $size;
+        $this->static = $static;
     }
 
     public function closeModal()
