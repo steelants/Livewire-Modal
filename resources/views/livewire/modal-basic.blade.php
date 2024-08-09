@@ -21,7 +21,7 @@
         <script>
             const myModalEl = document.getElementById('{{ $modalId }}');
             Livewire.on('openModal', event => {
-                (new bootstrap.Modal('#{{ $modalId }}', {'backdrop': event.static ? 'static' : true, 'keyboard': !event.static})).show();
+                (bootstrap.Modal.getOrCreateInstance('#{{ $modalId }}', {'backdrop': event.static ? 'static' : true, 'keyboard': !event.static})).show();
             })
             Livewire.on('closeModal', event => {
                 (bootstrap.Modal.getInstance(myModalEl)).hide();
