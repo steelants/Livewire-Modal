@@ -40,7 +40,7 @@ public function openModal($livewireComponents, $title = "", $parameters = [])
 ```html
 <button onclick="Livewire.dispatch('openModal', 'user-form', 'Create user')">Create User</button>
 
-<button onclick="Livewire.dispatch('openModal', 'user-form', 'Edit user', ['user' => $userId])">Edit User</button>
+<button onclick="Livewire.dispatch('openModal', 'user-form', 'Edit user', , parameters: {'user_id' : {{ $user->id }})">Edit User</button>
 ```
 
 ```php
