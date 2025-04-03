@@ -30,7 +30,7 @@
                 (bootstrap.Modal.getInstance(myModalEl)).hide();
             })
             myModalEl.addEventListener('hidden.bs.modal', event => {
-                Livewire.dispatch('closeModal');
+                Livewire.dispatch('closeModal', {'type' : 'close'});
             })
         </script>
     @endscript
