@@ -26,6 +26,10 @@
             Livewire.on('closeModal', event => {
                 (bootstrap.Modal.getInstance(myModalEl)).hide();
             })
+            Livewire.on('set-modal-title', event => {
+                $wire.title = event[0];
+                document.getElementById('{{ $modalId }}-label').innerHTML = $wire.title;
+            })
             window.addEventListener('close-modal', function() {
                 (bootstrap.Modal.getInstance(myModalEl)).hide();
             })
