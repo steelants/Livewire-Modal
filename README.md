@@ -1,4 +1,4 @@
-# Livevire Modal
+# Livewire Modal
 
 Package for opening any Livewire component inside modal. Powered by Livewire 3 and Bootstrap 5.
 
