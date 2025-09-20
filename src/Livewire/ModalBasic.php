@@ -7,7 +7,10 @@ use Illuminate\Support\Str;
 
 class ModalBasic extends Component
 {
-    protected $listeners = ['openModal', 'closeModal'];
+    protected $listeners = [
+        'openModal',
+        'closeModal',
+    ];
 
     public $livewireComponents = [];
     public $livewireComponentParameters = [];
@@ -29,7 +32,7 @@ class ModalBasic extends Component
      * @param array $parameters Component parameters
      * @return void
      */
-    public function openModal($livewireComponents, $title = "", $parameters = [], $size = 'md', $static = false)
+    public function openModal($livewireComponents, $title = "", $parameters = [], $size = 'md', $static = true)
     {
         $this->livewireComponents = $livewireComponents;
         $this->title = $title;

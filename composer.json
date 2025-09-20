@@ -17,6 +17,11 @@
         "laravel/framework": "^11.0|^12.0",
         "livewire/livewire": "^3.0"
     },
+	"require-dev": {
+		"phpunit/phpunit": "^9.3|^10.4",
+        "squizlabs/php_codesniffer": "^4.0",
+        "slevomat/coding-standard": "^8.19"
+	},
     "minimum-stability": "stable",
     "extra": {
         "laravel": {
@@ -24,5 +29,15 @@
                 "SteelAnts\\Modal\\ModalServiceProvider"
             ]
         }
-    }
+    },
+	"scripts": {
+		"check-static": "phpstan --memory-limit=2g",
+		"format": "phpcbf -v -d memory_limit=512M",
+		"lint": "phpcs"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
 }
