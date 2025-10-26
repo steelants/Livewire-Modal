@@ -21,12 +21,12 @@
         <script>
             const myModalEl = document.getElementById('{{ $modalId }}');
             Livewire.on('openModal', event => {
-                const staticBool = (event.static == null)
-                    const staticBool = (event[4] == null)
-                    ? true
-                    : (typeof event[4] === 'boolean')
-                        ? event[4]
-                        : Boolean(event[4]);
+				const static = event.static ?? event[4] ?? null;
+				const staticBool = (static == null)
+				? true
+				: (typeof static === 'boolean')
+					? static
+					: Boolean(static);
                 (bootstrap.Modal.getOrCreateInstance('#{{ $modalId }}', {'backdrop': staticBool ? 'static' : true, 'keyboard': !staticBool})).show();
             })
             Livewire.on('closeModal', event => {
