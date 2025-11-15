@@ -8,7 +8,6 @@ use SteelAnts\Modal\Livewire\ModalBasic;
 
 class ModalServiceProvider extends ServiceProvider
 {
-
     public function boot()
     {
         Livewire::component('modal-basic', ModalBasic::class);

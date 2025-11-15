@@ -7,7 +7,10 @@ use Illuminate\Support\Str;
 
 class ModalBasic extends Component
 {
-    protected $listeners = ['openModal', 'closeModal'];
+    protected $listeners = [
+        'openModal',
+        'closeModal',
+    ];
 
     public $livewireComponents = [];
     public $livewireComponentParameters = [];
