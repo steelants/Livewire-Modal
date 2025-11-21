@@ -92,7 +92,7 @@ class ModalBasic extends Component
 			->first()?->newInstance();
 
 		if (!$attr) {
-			return auth()->check();
+			return false;
 		}
 
 		if ($attr->ability) {
