@@ -4,6 +4,10 @@ namespace SteelAnts\Modal\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Locked;
+use Livewire\Mechanisms\ComponentRegistry;
+use Illuminate\Support\Facades\Gate;
+use SteelAnts\Modal\Livewire\Attributes\AllowInModal;
 
 class ModalBasic extends Component
 {
@@ -12,8 +16,10 @@ class ModalBasic extends Component
         'closeModal',
     ];
 
-    public $livewireComponents = [];
-    public $livewireComponentParameters = [];
+	#[Locked]
+    public $_livewireComponents = [];
+	#[Locked]
+    public $_livewireComponentParameters = [];
 
     public $model = null;
     public $parameters = [];
@@ -34,17 +40,23 @@ class ModalBasic extends Component
      */
     public function openModal($livewireComponents, $title = "", $parameters = [], $size = 'md', $static = true)
     {
-        $this->livewireComponents = $livewireComponents;
+		foreach((array) $livewireComponents as $component){
+			if(!$this->canOpenComponent($component)){
+				return;
+			}
+		}
+
+        $this->_livewireComponents = $livewireComponents;
+        $this->_livewireComponentParameters = $parameters;
         $this->title = $title;
-        $this->livewireComponentParameters = $parameters;
         $this->size = $size;
         $this->static = $static;
     }
 
     public function closeModal()
     {
-        $this->reset('livewireComponents');
-        $this->reset('livewireComponentParameters');
+        $this->reset('_livewireComponents');
+        $this->reset('_livewireComponentParameters');
         $this->reset('title');
     }
 
@@ -55,6 +67,38 @@ class ModalBasic extends Component
 
     public function render()
     {
-        return view('modal::modal-basic');
+		foreach((array) $this->_livewireComponents as $component){
+			if(!$this->canOpenComponent($component)){
+				$this->dispatch('closeModal');
+				return view('modal::modal-basic', [
+					'livewireComponents' => [],
+					'livewireComponentParameters' => [],
+				]);
+			}
+		}
+		return view('modal::modal-basic', [
+			'livewireComponents' => $this->_livewireComponents,
+			'livewireComponentParameters' => $this->_livewireComponentParameters,
+		]);
     }
+
+	private function canOpenComponent(string $alias): bool
+	{
+		$class = app(ComponentRegistry::class)->getClass($alias);
+		if (! $class) return false;
+
+		$attr = collect((new \ReflectionClass($class))
+			->getAttributes(AllowInModal::class))
+			->first()?->newInstance();
+
+		if (!$attr) {
+			return auth()->check();
+		}
+
+		if ($attr->ability) {
+			return Gate::allows($attr->ability, $attr->arguments);
+		}
+
+		return $attr->asGuest || auth()->check();
+	}
 }
