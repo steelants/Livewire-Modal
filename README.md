@@ -26,6 +26,25 @@ Created by <a href="https://steelants.cz">SteelAnts s.r.o.</a>
 
 </div>
 
+> [!WARNING]
+> **This package is deprecated and the repository is archived.**
+>
+> Livewire-Modal was merged into [Laravel-Boilerplate](https://github.com/steelants/Laravel-Boilerplate)
+> and is no longer developed or released separately.
+>
+> **Migration:**
+>
+> 1. `composer remove steelants/modal` and make sure `steelants/laravel-boilerplate` is at `^3.0`.
+> 2. Remove `SteelAnts\Modal\ModalServiceProvider::class` from `bootstrap/providers.php` -
+>    `BoilerplateServiceProvider` registers the modal.
+> 3. Replace `use SteelAnts\Modal\Livewire\Attributes\AllowInModal;` with
+>    `use SteelAnts\LaravelBoilerplate\Attributes\AllowInModal;`.
+> 4. Optionally rename the component in your layout from `modal-basic` to `boilerplate.modal.basic`
+>    (the old name stays registered).
+>
+> See the [modal documentation](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/components/modal.md)
+> and the [upgrade guide](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/updates/upgrade-3_0.md).
+
 ## Features
 
 SteelAnts Livewire-Modal provides:
