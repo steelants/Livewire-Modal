@@ -5,7 +5,7 @@ SteelAnts Livewire-Modal is a Laravel package for opening any Livewire component
 > [!WARNING]
 > This package is deprecated. It was merged into
 > [Laravel-Boilerplate](https://github.com/steelants/Laravel-Boilerplate) and is no longer developed
-> separately. See the [upgrade guide](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/updates/upgrade-2_7.md).
+> separately. See the [upgrade guide](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/updates/upgrade-3_0.md).
 
 ## Getting Started
 

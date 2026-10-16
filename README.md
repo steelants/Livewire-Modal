@@ -34,7 +34,7 @@ Created by <a href="https://steelants.cz">SteelAnts s.r.o.</a>
 >
 > **Migration:**
 >
-> 1. `composer remove steelants/modal` and make sure `steelants/laravel-boilerplate` is at `^2.7`.
+> 1. `composer remove steelants/modal` and make sure `steelants/laravel-boilerplate` is at `^3.0`.
 > 2. Remove `SteelAnts\Modal\ModalServiceProvider::class` from `bootstrap/providers.php` -
 >    `BoilerplateServiceProvider` registers the modal.
 > 3. Replace `use SteelAnts\Modal\Livewire\Attributes\AllowInModal;` with
@@ -43,7 +43,7 @@ Created by <a href="https://steelants.cz">SteelAnts s.r.o.</a>
 >    (the old name stays registered).
 >
 > See the [modal documentation](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/components/modal.md)
-> and the [upgrade guide](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/updates/upgrade-2_7.md).
+> and the [upgrade guide](https://github.com/steelants/Laravel-Boilerplate/blob/main/docs/updates/upgrade-3_0.md).
 
 ## Features
 
