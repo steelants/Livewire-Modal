@@ -1,22 +1,18 @@
 <div>
-    <div aria-hidden="true" aria-labelledby="{{ $modalId }}-label" class="modal fade" id="{{ $modalId }}" tabindex="-1" wire:ignore.self>
-        <div class="modal-dialog modal-{{ $size }} modal-fullscreen-sm-down">
-            <div class="modal-content">
-                <div class="modal-header">
-                    @yield('modal-header')
-                    <h5 class="modal-title" id="{{ $modalId }}-label">{{ $title }}</h5>
-                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-                </div>
-                <div class="modal-body">
-                    @if (isset($livewireComponents))
-                        @foreach ((array) $livewireComponents as $livewireComponentName)
-                            @livewire($livewireComponentName, $livewireComponentParameters, key($livewireComponentName))
-                        @endforeach
-                    @endif
-                </div>
-            </div>
+    <dialog aria-labelledby="{{ $modalId }}-label" class="dialog dialog-{{ $size }} sm-down:dialog-fullscreen" id="{{ $modalId }}" wire:ignore.self>
+        <div class="dialog-header">
+            @yield('modal-header')
+            <h5 class="dialog-title" id="{{ $modalId }}-label">{{ $title }}</h5>
+            <button aria-label="Close" class="btn-close" data-bs-dismiss="dialog" type="button"></button>
         </div>
-    </div>
+        <div class="dialog-body">
+            @if (isset($livewireComponents))
+                @foreach ((array) $livewireComponents as $livewireComponentName)
+                    @livewire($livewireComponentName, $livewireComponentParameters, key($livewireComponentName))
+                @endforeach
+            @endif
+        </div>
+    </dialog>
     @script
         <script>
             const myModalEl = document.getElementById('{{ $modalId }}');
@@ -28,19 +24,19 @@
                     : (typeof staticValue === 'boolean')
                         ? staticValue
                         : Boolean(staticValue);
-                (bootstrap.Modal.getOrCreateInstance('#{{ $modalId }}', {'backdrop': staticBool ? 'static' : true, 'keyboard': !staticBool})).show();
+                (bootstrap.Dialog.getOrCreateInstance('#{{ $modalId }}', {'backdrop': staticBool ? 'static' : true, 'keyboard': !staticBool})).show();
             })
             Livewire.on('closeModal', event => {
-                (bootstrap.Modal.getInstance(myModalEl)).hide();
+                (bootstrap.Dialog.getInstance(myModalEl)).hide();
             })
             Livewire.on('set-modal-title', event => {
                 $wire.title = event[0];
                 document.getElementById('{{ $modalId }}-label').innerHTML = $wire.title;
             })
             window.addEventListener('close-modal', function() {
-                (bootstrap.Modal.getInstance(myModalEl)).hide();
+                (bootstrap.Dialog.getInstance(myModalEl)).hide();
             })
-            myModalEl.addEventListener('hidden.bs.modal', event => {
+            myModalEl.addEventListener('hidden.bs.dialog', event => {
                 Livewire.dispatch('closeModal', {'type' : 'close'});
             })
         </script>
